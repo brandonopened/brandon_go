@@ -15,7 +15,8 @@ func main() {
   glog.Infoln("My OpenEd Resource Find Script")
 token,err := opened.GetToken("","","","")
   query_params:=make(map[string]string)
-  query_params["descriptive"]="cool colons"
+  query_params["standard"]="K.G.2"
+  query_params["descriptive"]=""
   query_params["grades_range"]="K-12"
   results,err:=opened.SearchResources(query_params,token)
   if err!=nil {

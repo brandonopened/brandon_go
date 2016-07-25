@@ -10,12 +10,12 @@ import (
 func init() {
   flag.Parse()
 }
-
 func main() {
-  glog.Infoln("My OpenEd Resource Find Script")
+  glog.Infoln("Texas Standards")
 token,err := opened.GetToken("","","","")
   query_params:=make(map[string]string)
-  query_params["descriptive"]="cool colons"
+  query_params["descriptive"]="fractions"
+  query_params["standard_group"]="21"
   query_params["grades_range"]="K-12"
   results,err:=opened.SearchResources(query_params,token)
   if err!=nil {
@@ -23,6 +23,7 @@ token,err := opened.GetToken("","","","")
   }
   glog.V(1).Infof("%d results returned",len(results.Resources))
   for _,resource:= range results.Resources {
-    glog.V(2).Infof("Resource Title: %s (%d)",resource.Title,resource.Id)
+    //I want the output to simply be "standard id, count number of resources"
+    glog.V(2).Infof("Resource %d (%s)",resource.Id,resource.Title)
   }
 }
