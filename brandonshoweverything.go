@@ -23,6 +23,6 @@ token,err := opened.GetToken("","","","")
   }
   glog.V(1).Infof("%d results returned",len(results.Resources))
   for _,resource:= range results.Resources {
-    glog.V(2).Infof("Resource Title: %s (%d)",resource.Title,resource.Id)
+    glog.V(2).Infof("Resource Title: %s (%d)",resource.Title,resource.ID)
   }
 }

@@ -32,7 +32,7 @@ func writeLines(lines []string, path string) error {
   }
   defer file.Close()
 
-  w := bufio.NewWriter(file)
+  w := bufio.NewWriter(input.csv)
   for _, line := range lines {
     fmt.Fprintln(w, line)
   }
@@ -40,7 +40,7 @@ func writeLines(lines []string, path string) error {
 }
 
 func main() {
-  lines, err := readLines("foo.in.txt")
+  lines, err := readLines("input.txt")
   if err != nil {
     log.Fatalf("readLines: %s", err)
   }
@@ -48,7 +48,7 @@ func main() {
     fmt.Println(i, line)
   }
 
-  if err := writeLines(lines, "foo.out.txt"); err != nil {
+  if err := writeLines(lines, "output.txt"); err != nil {
     log.Fatalf("writeLines: %s", err)
   }
 }
